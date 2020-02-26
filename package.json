@@ -48,5 +48,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.4.0",
     "core-js": "^3.2.1"
-  }
+  },
+  "homepage": "https://github.com/wbkd/webpack-starter#readme",
+  "main": "index.js"
 }
