@@ -88,15 +88,15 @@ searchForm.addEventListener("input", e => {
   searchInput.addEventListener("input", e => {
     const searchTerm = searchInput.value;
     if (searchTerm == '') {
-        document.getElementById('msg').innerHTML = ""
-        fetchUsers('india');
+        document.getElementByclassName('not-found').innerHTML = ""
+        fetchUsers('India');
       }
       else {
         fetchUsers(searchTerm);
         e.preventDefault();
       }
     });
-    fetchUsers('india');
+    fetchUsers('India');
   
 
 //API CALL
@@ -115,7 +115,7 @@ async function fetchUsers(searchTerm,sortBy){
              <div id="news-container">
                 <ul id="news-articles" class="list-group-horizontal" style="list-style-type:none;">
                   <li class="article" class="list-group-items">
-                    <div class="card shadow bg-dark text-white col md-4" id="carrd" style="width:19rem;">
+                    <div class="card shadow bg-dark text-white col md-4 mt-2" id="carrd" style="width:19rem;">
                       <div class="image-class">
                       <img class="article-img" class="card-img-top" src="${images}" alt="img" width="100%" height="180">
                       </div>
@@ -136,7 +136,7 @@ async function fetchUsers(searchTerm,sortBy){
             });
             display.innerHTML = newsCard;
             if (data.articles.length === 0) {
-                document.getElementById('message').innerHTML ='No article was found based on the search.';
+                document.getElementByclassName('not-found').innerHTML ='No article was found based on the search.';
                 e.preventDefault();
               }
    
