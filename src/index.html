@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" 
   crossorigin="anonymous">
-  <title>News Aggregator</title>
+  <link rel="stylesheet" href="./styles/index.css">
+  <title>News2you</title>
   <script src="https://unpkg.com/lodash@4.16.6"></script>
 </head>
 <body>
@@ -15,15 +16,15 @@
   <!--NAVBAR-->
   <nav class="navbar navbar-dark bg-dark text-center mb-3">
     <div class="container">
-      <header class="navbar-brand">News Aggregator</header>
+      <header class="navbar-brand"><strong>News2you</strong></header></header>
     </div>
   </nav>
   <div id="search-container" class="container">
-    <div id="search" class="card card-body bg-light mb-2">
-      <h4>Search Reddit</h4>
+    <div id="searchh" class="card card-body bg-light mb-2">
+      <h4>Search News</h4>
       <form id="search-form">
         <div class="form-group">
-          <input type="text" id="search-input" class="form-control mb-3" placeholder="Search Term...">
+          <input type="text" id="search" class="form-control mb-3" placeholder="Type and press enter to search">
         </div>
         <div class="form-check form-check-inline">
           Sort By:
@@ -38,24 +39,25 @@
             Latest
           </label>
         </div>
-        <h5 class="mt-2">Limit: </h5>
-        <div class="form-group">
-          <select name="limit" id="limit" class="form-control">
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20" selected>20</option>
-          </select>
-        </div>
+        
         <button type="submit" class="btn btn-dark btn-block mt-4">Search</button>
       </form>
     </div>
-    <div id="result">
-      <ul id="authors">
-
-      </ul>
-    </div>
   </div>
 
+  <section class="loader">
+      <section class="yellow"></section>
+      <section class="red"></section>
+      <section class="blue"></section>
+      <section class="violet"></section>
+  </section>
+
+  <div class="result">
+      <div id="container">
+        <div id="message"></div>
+      </div>
+  </div>
+  
   
 
   
