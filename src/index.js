@@ -106,31 +106,29 @@ async function fetchUsers(searchTerm,sortBy){
   const data=await res.json();
   console.log(data);
 
-    let display = document.getElementById('container');
+    let display = document.getElementById('news-articles');
             let newsCard = "";
             data.articles.map(function (article) {
                 let images =article.urlToImage ? article.urlToImage
-                :'https://www.dreamstime.com/no-image-available-icon-photo-camera-flat-vector-illustration-image132483296';                
+                :'https://www.dreamstime.com/no-image-available-icon-photo-camera-flat-vector-illustration-image132483296';              
                 let news = ` 
-             <div id="news-container">
-                <ul id="news-articles" class="list-group-horizontal" style="list-style-type:none;">
-                  <li class="article">
-                    <div class="card shadow bg-dark text-white col md-4 mt-2" id="carrd" style="width:19rem;">
-                      <div class="image-class">
-                      <img class="article-img" class="card-img-top" src="${images}" alt="img" width="100%" height="180">
-                      </div>
+               
+                    <li class="article">
+                      <div class="card shadow bg-dark text-white col md-4 mt-2" id="carrd" style="width:19rem;">
+                        <div class="image-class">
+                          <img class="article-img" class="card-img-top" src="${images}" alt="img" width="100%" height="180">
+                        </div>
                         <div class="card-body">
-                        <h2 class="article-title" class="card-title"></h2>
-                        <h4 class="card-title">${article.title}</h4>
-                        <p class="article-description" class="card-text">${truncateText(article.description,100)}</p>
-                        <span class="article-author" class="badge badge-secondary">${article.author}</span>
-                        <a href="${article.url}"target="_blank" class="btn btn-primary" class="article-link">See More</a>
+                          <h2 class="article-title" class="card-title"></h2>
+                          <h4 class="card-title">${article.title}</h4>
+                          <p class="article-description" class="card-text">${truncateText(article.description,100)}</p>
+                          <span class="article-author" class="badge badge-secondary">${article.author}</span>
+                          <a href="${article.url}"target="_blank" class="btn btn-primary" class="article-link">See More</a>
+                        </div>
                       </div>
-                    </div>
-                  </li>
-                </ul>
-           
-              </div>
+                    </li>
+                 
+              
                `;
                 newsCard += news;
             });
@@ -138,7 +136,7 @@ async function fetchUsers(searchTerm,sortBy){
             if (data.articles.length === 0) {
                 document.getElementByclassName('not-found').innerHTML ='No article was found based on the search.';
                 e.preventDefault();
-              }
+            }
    
     
 }
