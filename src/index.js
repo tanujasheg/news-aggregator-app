@@ -114,7 +114,7 @@ async function fetchUsers(searchTerm,sortBy){
                 let news = ` 
              <div id="news-container">
                 <ul id="news-articles" class="list-group-horizontal" style="list-style-type:none;">
-                  <li class="article" class="list-group-items">
+                  <li class="article">
                     <div class="card shadow bg-dark text-white col md-4 mt-2" id="carrd" style="width:19rem;">
                       <div class="image-class">
                       <img class="article-img" class="card-img-top" src="${images}" alt="img" width="100%" height="180">

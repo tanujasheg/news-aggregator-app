@@ -39,6 +39,9 @@ section section {
 #carrd:hover {
   transition: all 1.5 ease; }
 
+.text {
+  display: none; }
+
 @keyframes bounce {
   0%, 50%, 100% {
     transform: scale(1);
