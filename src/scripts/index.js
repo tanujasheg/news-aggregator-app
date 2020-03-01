@@ -63,9 +63,9 @@ function init(){
     loader.style.opacity=0;
     loader.style.display='none';
 
-    results.style.display='block';
-    setTimeOut(()=>
-      (results.style.opacity=1),50);
+    result.style.display='block';
+    setTimeout(()=>
+      (result.style.opacity=1),50);
   },1000);
 }
 init();
@@ -111,7 +111,7 @@ async function fetchUsers(searchTerm,sortBy){
             data.articles.map(function (article) {
                 /*const images =article.urlToImage ? article.urlToImage
                 :'https://www.dreamstime.com/no-image-available-icon-photo-camera-flat-vector-illustration-image132483296'; */             
-                let news = ` 
+                const content = ` 
                
                     <li class="article mx-4 my-4">
                       <div class="card  shadow bg-dark text-white col  " id="carrd" style="width:19rem;">
@@ -130,7 +130,7 @@ async function fetchUsers(searchTerm,sortBy){
                  
               
                `;
-                newsCard += news;
+                newsCard += content;
             });
             display.innerHTML = newsCard;
             if (data.articles.length === 0) {
