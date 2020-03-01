@@ -113,7 +113,7 @@ async function fetchUsers(searchTerm,sortBy){
                 :'https://www.dreamstime.com/no-image-available-icon-photo-camera-flat-vector-illustration-image132483296'; */             
                 const content = ` 
                
-                    <li class="article mx-4 my-4">
+                    <li class="article">
                       <div class="card  shadow bg-dark text-white col  " id="carrd" style="width:19rem;">
                         <div class="image-class">
                           <img class="article-img" class="card-img-top" src="${article.urlToImage}" alt="img" width="100%" height="180">
