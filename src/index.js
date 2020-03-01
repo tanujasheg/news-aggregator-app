@@ -109,18 +109,18 @@ async function fetchUsers(searchTerm,sortBy){
     let display = document.getElementById('news-articles');
             let newsCard = "";
             data.articles.map(function (article) {
-                let images =article.urlToImage ? article.urlToImage
-                :'https://www.dreamstime.com/no-image-available-icon-photo-camera-flat-vector-illustration-image132483296';              
+                /*const images =article.urlToImage ? article.urlToImage
+                :'https://www.dreamstime.com/no-image-available-icon-photo-camera-flat-vector-illustration-image132483296'; */             
                 let news = ` 
                
-                    <li class="article">
-                      <div class="card shadow bg-dark text-white col md-4 mt-2" id="carrd" style="width:19rem;">
+                    <li class="article mx-4 my-4">
+                      <div class="card  shadow bg-dark text-white col  " id="carrd" style="width:19rem;">
                         <div class="image-class">
-                          <img class="article-img" class="card-img-top" src="${images}" alt="img" width="100%" height="180">
+                          <img class="article-img" class="card-img-top" src="${article.urlToImage}" alt="img" width="100%" height="180">
                         </div>
                         <div class="card-body">
                           <h2 class="article-title" class="card-title"></h2>
-                          <h4 class="card-title">${article.title}</h4>
+                          <h4 class="card-title">${truncateText(article.title,30)}</h4>
                           <p class="article-description" class="card-text">${truncateText(article.description,100)}</p>
                           <span class="article-author" class="badge badge-secondary">${article.author}</span>
                           <a href="${article.url}"target="_blank" class="btn btn-primary" class="article-link">See More</a>
