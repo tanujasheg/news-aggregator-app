@@ -134,7 +134,7 @@ async function fetchUsers(searchTerm,sortBy){
             });
             display.innerHTML = newsCard;
             if (data.articles.length === 0) {
-                document.getElementByclassName('not-found').textContent ='No article was found based on the search.';
+                document.getElementByclassName('not-found').text='No article was found based on the search.';
                 e.preventDefault();
             }
    
