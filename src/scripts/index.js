@@ -20,6 +20,8 @@ searchForm.addEventListener('submit', e => {
   searchInput.value = '';
 
  
+
+ 
   e.preventDefault();
 });
 
@@ -56,7 +58,7 @@ function truncateText(text, limit) {
 
 //LOADER
 const loader=document.querySelector('.loader');
-const results=document.querySelector('.results');
+const result=document.querySelector('.result');
 
 function init(){
   setTimeout(()=>{
@@ -81,23 +83,31 @@ searchForm.addEventListener("input", e => {
       fetchUsers(sortBy);
       e.preventDefault();
     }
-  });
-  fetchUsers();
+});
+fetchUsers();
 
-  //SEARCH TERM
-  searchInput.addEventListener("input", e => {
-    const searchTerm = searchInput.value;
-    if (searchTerm == '') {
-        document.getElementByclassName('not-found').innerHTML = ""
-        fetchUsers('India');
-      }
-      else {
-        fetchUsers(searchTerm);
-        e.preventDefault();
-      }
-    });
-    fetchUsers('India');
-  
+//SEARCH TERM
+searchInput.addEventListener("keyup",e=>{
+const searchTerm = searchInput.value;
+
+
+
+if (searchTerm ==="") {
+  document.getElementByclassName('not-found').innerHTML = ""
+  fetchUsers('India');
+}
+else{
+  fetchUsers(searchTerm);
+  e.preventDefault();
+}
+});
+//e.preventDefault();
+     
+fetchUsers('India');
+        
+
+
+
 
 //API CALL
 async function fetchUsers(searchTerm,sortBy){
@@ -134,10 +144,9 @@ async function fetchUsers(searchTerm,sortBy){
             });
             display.innerHTML = newsCard;
             if (data.articles.length === 0) {
-                document.getElementByclassName('not-found').text='No article was found based on the search.';
+                document.getElementByclassName('not-found').text ='No article was found based on the search.';
                 e.preventDefault();
             }
-   
     
 }
 fetchUsers();
