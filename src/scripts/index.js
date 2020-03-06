@@ -101,8 +101,7 @@ else{
   e.preventDefault();
 }
 });
-//e.preventDefault();
-     
+
 fetchUsers('India');
         
 
@@ -115,6 +114,8 @@ async function fetchUsers(searchTerm,sortBy){
   const res= await fetch(`http://newsapi.org/v2/everything?q=${searchTerm}&${sortBy}&apiKey=171ab48f8a894889a3327230563b9593`);
   const data=await res.json();
   console.log(data);
+
+  if(data.totalResults>0){
 
     let display = document.getElementById('news-articles');
             let newsCard = "";
@@ -143,10 +144,19 @@ async function fetchUsers(searchTerm,sortBy){
                 newsCard += content;
             });
             display.innerHTML = newsCard;
-            if (data.articles.length === 0) {
+  }
+            
+            /*if (data.articles.length === 0) {
                 document.getElementByclassName('not-found').text ='No article was found based on the search.';
                 e.preventDefault();
-            }
+            }*/
+
+  else if(data.totalResults===0){
+              var invalidInput=document.getElementById("result");
+              invalidInput.innerHTML="<h3>No article was found based on the search.</h3>";
+              invalidInput.style.color="red";
+              invalidInput.classList.add("not-found");
+  }   
     
 }
 fetchUsers();
